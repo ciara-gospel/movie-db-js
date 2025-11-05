@@ -111,16 +111,25 @@ button {
 
 #movie-action {
   display: flex;
-  gap: 17rem;
+  justify-content: space-between;
+  align-items: center;
   margin-top: 3.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+#playBtn {
+  display: flex;
+  gap: 1rem;
 }
 
 .action-btn {
   display: flex;
-  justify-content: end;
-  gap: 0.5rem;
+  justify-content: flex-end;
+  gap: 0.8rem;
   padding-bottom: 0.5rem;
 }
+
 
 .movie-content {
   display: flex;
@@ -161,7 +170,7 @@ button {
   left: 0;
   right: 0;
   height: 50%;
-  background: linear-gradient(to top, #1a1a1a, #1a1a1a00); /* Dark at bottom, fading to transparent */
+  background: linear-gradient(to top, #1a1a1a, #1a1a1a00);
   pointer-events: none;
 }
 
@@ -254,7 +263,6 @@ button {
   padding-top: 1rem;
 }
 
-/* Side Navbar */
 #side-navbar {
   position: fixed;
   top: 0;

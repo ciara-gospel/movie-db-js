@@ -69,11 +69,9 @@ document.querySelector('#app').innerHTML = `
   <section class="popular-section">
   <h2>Popular of the Week</h2>
   <div class="popular-container">
-    <button class="scroll-btn prev-btn"></button>
     <div class="popular-items">
       <!-- Movie cards will be added dynamically via JavaScript -->
     </div>
-    <button class="scroll-btn next-btn"></button>
   </div>
    <div class ="overlay"></div>
 </section>
@@ -332,9 +330,9 @@ function showMovies (data) {
          1
        )} <button class="heart-btn"><i class="fa-regular fa-heart"></i></button></span>
   `
-    const bookmarkButton = movieEl.querySelector('.bookmark-btn')
-    bookmarkButton.addEventListener('click', () => {
-      const icon = bookmarkButton.querySelector('i')
+    const heartButton = movieEl.querySelector('.heart-btn')
+    heartButton.addEventListener('click', () => {
+      const icon = heartButton.querySelector('i')
       icon.classList.toggle('fa-regular')
       icon.classList.toggle('fa-solid')
       icon.style.color = icon.classList.contains('fa-solid') ? 'green' : ''
@@ -393,22 +391,22 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 function changeButtonColor (className, movie) {
-  const bookmarkButton = className.querySelector('.bookmark-btn')
+  const heartButton = className.querySelector('.heart-btn')
 
-  if (!bookmarkButton) {
-    console.error('Bookmark button not found within the provided element.')
+  if (!heartButton) {
+    console.error('Heart button not found within the provided element.')
     return
   }
 
-  bookmarkButton.addEventListener('click', () => {
-    const icon = bookmarkButton.querySelector('i')
+  heartButton.addEventListener('click', () => {
+    const icon = heartButton.querySelector('i')
 
     if (!icon) {
-      console.error('Icon inside the bookmark button is not found.')
+      console.error('Icon inside the heart button is not found.')
       return
     }
 
-    // Toggle bookmark icon classes and color
+    // Toggle heart icon classes and color
     icon.classList.toggle('fa-regular')
     icon.classList.toggle('fa-solid')
     icon.style.color = icon.classList.contains('fa-solid') ? 'green' : '' // Green if solid
@@ -456,24 +454,6 @@ async function loadHeroBanner () {
   })
 
   setupHeroNavigation()
-}
-
-// Hero banner navigation
-function setupHeroNavigation () {
-  const slides = document.querySelectorAll('.slide')
-  const prevBtn = document.querySelector('.navigation .prev')
-  const nextBtn = document.querySelector('.navigation .next')
-
-  let currentSlide = 0
-
-  function showSlide (index) {
-    slides[currentSlide].classList.remove('active')
-    currentSlide = (index + slides.length + 1) % (slides.length - 1)
-    slides[currentSlide].classList.add('active')
-  }
-
-  prevBtn.addEventListener('click', () => showSlide(currentSlide - 1))
-  nextBtn.addEventListener('click', () => showSlide(currentSlide + 1))
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -526,6 +506,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         <p>${movie.genre_ids.slice(0, 2).join(' • ')}</p>
         <div class="rating">
           <i class="fas fa-star"></i>| ${movie.vote_average.toFixed(1)}
+          <button class="heart-btn"><i class="fa-regular fa-heart"></i></button>
         </div>
       </div>
     `
@@ -537,18 +518,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       popularContainer.appendChild(movieCard)
     })
   }
-
-  // Scroll functionality for "Popular of the Week" section
-  const prevBtn = document.querySelector('.prev-btn')
-  const nextBtn = document.querySelector('.next-btn')
-
-  prevBtn.addEventListener('click', () => {
-    popularContainer.scrollLeft -= 300
-  })
-
-  nextBtn.addEventListener('click', () => {
-    popularContainer.scrollLeft += 300
-  })
 
   // Initialize the section
   populatePopularMovies()
@@ -586,6 +555,7 @@ async function loadCarousel (sectionId, endpoint) {
             <div class="movie-overlay">
               <h3>${movie.title}</h3>
               <span>⭐ ${movie.vote_average.toFixed(1)}</span>
+              <button class="heart-btn"><i class="fa-regular fa-heart"></i></button>
             </div>
           </div>
         `
@@ -597,7 +567,6 @@ async function loadCarousel (sectionId, endpoint) {
       carouselContainer.appendChild(movieEl)
     })
 
-    setupCarouselNavigation(sectionId)
   } catch (error) {
     console.error('Error loading carousel:', error)
   }
@@ -623,7 +592,7 @@ async function loadCarouselWide (sectionId, endpoint) {
             <h3>${movie.title}</h3>
             <span>⭐ ${movie.vote_average.toFixed(
               1
-            )}</span>
+            )} <button class="heart-btn"><i class="fa-regular fa-heart"></i></button></span>
           </div>
         </div>
       `
@@ -633,23 +602,6 @@ async function loadCarouselWide (sectionId, endpoint) {
     redirectToDetailPage(movieEl, movie)
 
     carouselContainer.appendChild(movieEl)
-  })
-
-  setupCarouselNavigation(sectionId)
-}
-
-// Carousel navigation
-function setupCarouselNavigation (sectionId) {
-  const carousel = document.querySelector(`#${sectionId} .carousel-container`)
-  const prevBtn = document.querySelector(`#${sectionId} .carousel-button.prev`)
-  const nextBtn = document.querySelector(`#${sectionId} .carousel-button.next`)
-
-  prevBtn.addEventListener('click', () => {
-    carousel.scrollBy({ left: -300, behavior: 'smooth' })
-  })
-
-  nextBtn.addEventListener('click', () => {
-    carousel.scrollBy({ left: 300, behavior: 'smooth' })
   })
 }
 
@@ -758,6 +710,7 @@ function displaySearchResults (results) {
         <p>⭐ ${movie.vote_average.toFixed(1)} | Release Date: ${
       movie.release_date || 'N/A'
     }</p>
+       <button class="heart-btn"><i class="fa-regular fa-heart"></i></button>
       </div>
     `
 

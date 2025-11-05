@@ -128,28 +128,28 @@ function saveToLocalStorage (movie) {
   const movieExists = watchlist.some((item) => item.id === movie.id) // Check if the movie already exists
 
   if (!movieExists) {
-    watchlist.push(movie) // Add movie to watchlist
+    watchlist.push(movie)
     localStorage.setItem('favourite', JSON.stringify(watchlist)) // Save updated list
   }
 }
 
 function changeButtonColor (className, movie) {
-  const bookmarkButton = className.querySelector('.bookmark-btn')
+  const heartButton = className.querySelector('.heart-btn')
 
-  if (!bookmarkButton) {
-    console.error('Bookmark button not found within the provided element.')
+  if (!heartButton) {
+    console.error('Heart button not found within the provided element.')
     return
   }
 
-  bookmarkButton.addEventListener('click', () => {
-    const icon = bookmarkButton.querySelector('i')
+  heartButton.addEventListener('click', () => {
+    const icon = heartButton.querySelector('i')
 
     if (!icon) {
-      console.error('Icon inside the bookmark button is not found.')
+      console.error('Icon inside the heart button is not found.')
       return
     }
 
-    // Toggle bookmark icon classes and color
+    // Toggle heart icon classes and color
     icon.classList.toggle('fa-regular')
     icon.classList.toggle('fa-solid')
     icon.style.color = icon.classList.contains('fa-solid') ? 'green' : '' // Green if solid
@@ -193,6 +193,7 @@ async function sameClassMovies () {
                <h3 class="movie-title">${movie.title}</h3>
            <div class="movie-rating">
               ⭐ ${movie.vote_average.toFixed(1)}
+              <button class="heart-btn"><i class="fa-regular fa-heart"></i></button>
             </div>
           </div>
         `
