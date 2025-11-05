@@ -453,7 +453,7 @@ async function loadHeroBanner () {
     slideshow.appendChild(slide)
   })
 
-  setupHeroNavigation()
+  // setupHeroNavigation()
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -561,12 +561,9 @@ async function loadCarousel (sectionId, endpoint) {
         `
 
       changeButtonColor(movieEl, movie)
-
       redirectToDetailPage(movieEl, movie)
-
       carouselContainer.appendChild(movieEl)
     })
-
   } catch (error) {
     console.error('Error loading carousel:', error)
   }
