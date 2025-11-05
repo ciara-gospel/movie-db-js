@@ -43,7 +43,7 @@ document.querySelector('#detail').innerHTML = `
       <span id="greytext"></span>
 
       <div id="movie-action">
-      <div id="playBtn">
+      <div id="play-btn">
           <button id="playone"><i class="fa-solid fa-circle-play"></i> Continue Watching</button>
           <button class="bookmark-btn" id="playtwo"><i class="fa-regular fa-bookmark"></i> Add Watchlist</button>
       </div>

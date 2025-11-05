@@ -891,7 +891,6 @@ button:focus-visible {
   border-radius: 8px;
 }
 
-
 #search-results::-webkit-scrollbar {
   width: 10px;
 }
