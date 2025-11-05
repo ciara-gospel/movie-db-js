@@ -109,16 +109,17 @@ button {
   padding: 1rem;
 }
 
-.prev {
-  position: absolute;
-  left: 0;
-  top: 50%;
+#movie-action {
+  display: flex;
+  gap: 17rem;
+  margin-top: 3.5rem;
 }
 
-.next {
-  position: absolute;
-  right: 0;
-  top: 50%;
+.action-btn {
+  display: flex;
+  justify-content: end;
+  gap: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .movie-content {
@@ -181,7 +182,6 @@ button {
   h3 {
     font-size: 2.5rem;
     padding-bottom: 1rem;
-
   }
 }
 

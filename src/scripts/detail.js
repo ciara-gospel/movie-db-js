@@ -3,11 +3,11 @@ import '../styles/film.css'
 document.querySelector('#detail').innerHTML = `
      <div id="navabar">
           <div id="logo">
-            <img src="/images/Logo.png" alt="logo" id="symbol">
-            <img src="/images/SaintStream.png" alt="logo">
+            <img src="/images/SS.jpg" alt="logo" id="symbol">
+            <img src="/images/SaintStream.jpg" alt="logo">
           </div>
            <div class="bars">
-            <img src="/images/Logo.png" alt="logo" id="symbol">
+            <img src="/images/SS.jpg" alt="logo" id="symbol">
             <i class="fa-solid fa-bars"></i>
             </div>
             <div id="side-navbar" class="hidden">
@@ -41,10 +41,18 @@ document.querySelector('#detail').innerHTML = `
      <div class="movie-content">
       <h1 id="movie-title">Movie Title</h1>
       <span id="greytext"></span>
+
+      <div id="movie-action">
       <div id="playBtn">
           <button id="playone"><i class="fa-solid fa-circle-play"></i> Continue Watching</button>
           <button class="bookmark-btn" id="playtwo"><i class="fa-regular fa-bookmark"></i> Add Watchlist</button>
       </div>
+    <div class="action-btn">
+      <button class="download-btn"><i class="fa-solid fa-download"></i> Download</button>
+      <button class="share-btn"><i class="fa-solid fa-share"></i> Share</button>
+      <button class="like-btn"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+    </div>
+    </div>
     </div>
   </section>
 
@@ -185,9 +193,6 @@ async function sameClassMovies () {
                <h3 class="movie-title">${movie.title}</h3>
            <div class="movie-rating">
               ⭐ ${movie.vote_average.toFixed(1)}
-               <button class="bookmark-btn">
-                  <i class="fa-regular fa-heart"></i>
-                </button>
             </div>
           </div>
         `

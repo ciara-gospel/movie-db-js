@@ -369,13 +369,22 @@ button:focus-visible {
   align-items: center;
   position: relative;
   overflow: hidden;
+  gap: 10px;
 
   img {
-    height: 7rem;
-    width: 7rem;
+    height: 3rem;
+    width: 6rem;
     object-fit: contain;
     margin-right: 1rem;
   }
+}
+
+.btns {
+  background-color: #000;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
 }
 
 .nav-btn {

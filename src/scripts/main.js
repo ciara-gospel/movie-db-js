@@ -3,11 +3,11 @@ import '../styles/style.css'
 document.querySelector('#app').innerHTML = `
       <div id="header">
           <div id="logo">
-            <img src="/images/Logo.png" alt="logo" id="symbol">
-            <img src="/images/SaintStream.png" alt="logo">
+            <img src="/images/SS.jpg" alt="logo" id="symbol">
+            <img src="/images/SaintStream.jpg" alt="logo">
           </div>
            <div class="bars">
-            <img src="/images/Logo.png" alt="logo" id="symbol">
+            <img src="/images/SS.jpg" alt="logo" id="symbol">
             <i class="fa-solid fa-bars"></i>
           </div>
 
@@ -56,16 +56,14 @@ document.querySelector('#app').innerHTML = `
   </section>
 
   <section id="movie-partners">
-  <button class="nav-btn prev" id="recent">&#8250;</button>
-      <img src="/images/Disney1.png" alt="disney">
-      <img src="/images/Netflix.png" alt="netflix">
-      <img src="/images/hbomax.png" alt="hbomax">
-      <img src="/images/pixar.png" alt="pixar">
-      <img src="/images/marvel.png" alt="marvel">
-      <img src="/images/starwars.webp" alt="starwars">
-      <img src="/images/geographic.png" alt="geographic">
-      <img src ="/images/youtube.png" alt ="youtube">
-    <button class="nav-btn next" id="recent">&#8250;</button>
+    <button class="btns"><img src="/images/Disney.jpg" alt="disney"></button>
+      <button class="btns"><img src="/images/Netflix.jpg" alt="netflix"></button>
+      <button class="btns"><img src="/images/hbomax.jpg" alt="hbomax"></button>
+      <button class="btns"><img src="/images/pixar.jpg" alt="pixar"></button>
+      <button class="btns"><img src="/images/marvel.jpg" alt="marvel"></button>
+      <button class="btns"><img src="/images/starwars.jpg" alt="starwars"></button>
+      <button class="btns"><img src="/images/geographicLogo.jpg" alt="geographic"></button>
+      <button class="btns"><img src="/images/youtube.jpg" alt="youtube"></button>
   </section>
 
   <section class="popular-section">
@@ -332,7 +330,7 @@ function showMovies (data) {
       <h3>${movie.title}</h3>
        <span>⭐ ${movie.vote_average.toFixed(
          1
-       )} <button class="bookmark-btn"><i class="fa-regular fa-heart"></i></button></span>
+       )} <button class="heart-btn"><i class="fa-regular fa-heart"></i></button></span>
   `
     const bookmarkButton = movieEl.querySelector('.bookmark-btn')
     bookmarkButton.addEventListener('click', () => {
@@ -528,7 +526,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         <p>${movie.genre_ids.slice(0, 2).join(' • ')}</p>
         <div class="rating">
           <i class="fas fa-star"></i>| ${movie.vote_average.toFixed(1)}
-          <button class="bookmark-btn"><i class="fa-regular fa-heart"></i></button>
         </div>
       </div>
     `
@@ -589,9 +586,6 @@ async function loadCarousel (sectionId, endpoint) {
             <div class="movie-overlay">
               <h3>${movie.title}</h3>
               <span>⭐ ${movie.vote_average.toFixed(1)}</span>
-              <button class="bookmark-btn">
-                <i class="fa-regular fa-heart"></i>
-              </button>
             </div>
           </div>
         `
@@ -629,7 +623,7 @@ async function loadCarouselWide (sectionId, endpoint) {
             <h3>${movie.title}</h3>
             <span>⭐ ${movie.vote_average.toFixed(
               1
-            )}  <button class="bookmark-btn"><i class="fa-regular fa-heart"></i></button></span>
+            )}</span>
           </div>
         </div>
       `
@@ -678,7 +672,7 @@ async function loadBottomBanner () {
                            <div class="hero-bottom-details">
                            <div id="playbtndown">
                             <button id="playonedown"><i class="fa-solid fa-circle-play"></i> Play Now</button>                            
-                            <button class="bookmark-btn" id="playtwodown"><i class="fa-regular fa-heart"></i> Add Watchlist</button>
+                            <button class="bookmark-btn" id="playtwodown"><i class="fa-regular fa-bookmark"></i> Add Watchlist</button>
                           </div>
                        </div>
     
@@ -764,7 +758,6 @@ function displaySearchResults (results) {
         <p>⭐ ${movie.vote_average.toFixed(1)} | Release Date: ${
       movie.release_date || 'N/A'
     }</p>
-        <button class="bookmark-btn"><i class="fa-regular fa-heart"></i></button>
       </div>
     `
 
